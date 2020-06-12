@@ -138,7 +138,13 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | Spec | Input | Output |
 | :------------- | :------------- | :------------- |
 | **User can view all Parks** | User Input:"GET api/parks" | Output: “List of all Parks ” |
-
+| **User can view Details for each Park** | User Input:"GET api/parks/ENTERIDNUMBER" | Output: ""Name": "Yosemite", "State": "California", "Hours": "27/7", "Landmarks": "Yosemite Valley, Half Dome, Yosemite Falls", "PhotoUrl: : "www.sample.com""|
+| **User can Add a Park** | User Input:"POST api/parks" --- "Name": "Yosemite", "State": "California", "Hours": "27/7", "Landmarks": "Yosemite Valley, Half Dome, Yosemite Falls", "PhotoUrl: : "www.sample.com""| | Output: “200 OK” |
+| **User can update a Park's Details** | User Input:"PUT api/parks/ENTERIDNUMBER" --- "Name": "Yosemite", "State": "California", "Hours": "27/7", "Landmarks": "Yosemite Valley, Half Dome, Yosemite Falls", "PhotoUrl: : "www.sample.com""| Output: "200 OK" |
+| **User can delete Parks** | User Input:"DELETE api/parks/ENTERIDNUMBER" | Output: “200 OK” |
+| **User can search for a Park by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: Name": "Yosemite", "State": "California", "Hours": "27/7", "Landmarks": "Yosemite Valley, Half Dome, Yosemite Falls", "PhotoUrl: : "www.sample.com"" |
+| **User can search for a Park by State** | User Input:"User Input:"GET /api/parks?state=California" | Output: Name": "Yosemite", "State": "California", "Hours": "27/7", "Landmarks": "Yosemite Valley, Half Dome, Yosemite Falls", "PhotoUrl: : "www.sample.com"" |
+| **User can search for a Park by multiple parameters** | User Input:"User Input:"GET /api/parks?name=Yosemite&state=California" | Output: ""Name": "Yosemite", "State": "California", "Hours": "27/7", "Landmarks": "Yosemite Valley, Half Dome, Yosemite Falls", "PhotoUrl: : "www.sample.com"" |
 | **User enters home page** | User Input:"URL: localhost:5000/" | Output: “Swagger API Documentation” |
 
 #### License
