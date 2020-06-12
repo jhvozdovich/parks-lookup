@@ -2,7 +2,7 @@
 
 namespace ParksLookup.Migrations
 {
-    public partial class OneToMany2 : Migration
+    public partial class TroubleshootLandmark : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
