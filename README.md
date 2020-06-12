@@ -5,7 +5,7 @@
 
 ### Description
 
-_This application serves as an introduction to building an API with C#/.NET Core. The Park Lookup API catalogs national and state park data, with a few fantastical locations sprinkled in as well. It has full CRUD functionality that can be accessed in a user-friendly Swagger interface._
+_This application demonstrates the building of an API with C#/.NET Core. The Park Lookup API catalogs national and state park data, with a few fantastical locations sprinkled in as well. It has full CRUD functionality that can be accessed in a user-friendly Swagger interface._
 
 ### Instructions for use:
 1. Open Terminal (macOS) or PowerShell (Windows)
@@ -36,10 +36,12 @@ code .
 }
 ```
 * Add your MySQL password and make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
-<!-- 6. To download the MVC project Directory to your desktop enter the following commands:
+<!-- 
+IF MVC IS ADDED:
+6. To download the MVC project Directory to your desktop enter the following commands:
 ```
 cd Desktop
-git clone https://github.com/jhvozdovich/park-lookup-mvc.git
+git clone https://github.com/jhvozdovich/park-lookup-mvc.git *****USE CORRECT URL
 cd park-lookup-mvc (or the file name you created for the main Directory of the download)
 ```
 7. To view the downloaded files, open them in a text editor or IDE of your choice.
@@ -77,8 +79,14 @@ dotnet build
 dotnet run
 ```
 6. The Swagger documentation for this project is accessible from the home directory of the local host. Click on the http://localhost:5000 link in your terminal that appeared after the dotnet run command or paste the link to the local host in your browser.
-<!-- SWAGGER INSTRUCTIONS -->
-7. If the user would rather test the API calls in Postman, the paths are described as the User Input in the paths below. 
+7. To test API calls in Swagger:
+* CLick on a tab for one of the Methods.
+* In the expanded view for the method click "Try it out"
+* GET: Enter any optional search parameters (name: Yosemite) or required search parameters(id: 1)
+* POST/PUT/DELETE: If the method changes information in the database, specify the id if necessary and enter any new information in the fields provided by in the "Request body" section and select "application/json" from the dropdown.
+* Click Execute to run your command.
+
+8. If the user would rather test the API calls in Postman, the paths are described as the User Input in the paths below. 
 
 ##### Example for Read:
 * Select GET from the dropdown menu
@@ -104,13 +112,16 @@ http://localhost:5000/api/parks/
   "Classification" : "ENTER STATE OR NATIONAL",
   "State": "ENTER PARK STATE",
   "Hours": "ENTER PARK HOURS",
-  "Landmarks": {"ENTER", "PARK LANDMARKS", "IN COMMA", "SEPARATED LIST"},
   "PhotoUrl": : "ENTER PHOTO URL"
 }
 ```
 * Click Send, successful responses will return a 200OK result.
 * If there is a "could not get response" error be sure the program is still running at http://localhost:5000 
-<!-- #### To run the MVC program:
+* To easily access the format of Post/Put requests - run a GET request and copy the format of the JSON response returned.
+
+
+<!--  IF MVC IS FINISHED
+#### To run the MVC program:
 To install the necessary dependencies and start a localhost, after replicating the database and ensuring it is also running on a different session (Example: API on port 5000, MVC on port 5006), run the following commands:
 ```
 dotnet restore
@@ -138,15 +149,26 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 ### Specs
 | Spec | Input | Output |
 | :------------- | :------------- | :------------- |
-| **User can view all Parks** | User Input:"GET api/parks" | Output: “List of all Parks ” |
-| **User can view Details for each Park** | User Input:"GET api/parks/ENTERIDNUMBER" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com""|
-| **User can Add a Park** | User Input:"POST api/parks" --- "Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com""| | Output: “200 OK” |
-| **User can update a Park's Details** | User Input:"PUT api/parks/ENTERIDNUMBER" --- "Name": "Yosemite",   v "State": "California", "Hours": "24/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com""| Output: "200 OK" |
+| **User can view all Parks** | User Input:"GET api/parks" | Output: “List of all Parks” |
+| **User can view Details for each Park** | User Input:"GET api/parks/ENTERIDNUMBER" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ Yosemite Valle","Half Dom","Yosemite Falls", "PhotoUrl": : "www.sample.com""|
+| **User can Add a Park** | User Input:"POST api/parks" --- "Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "PhotoUrl": : "www.sample.com""| | Output: “200 OK” |
+| **User can update a Park's Details** | User Input:"PUT api/parks/ENTERIDNUMBER" --- "Name": "Yosemite",   "State": "California", "Hours": "24/7", "Landmarks": {Yosemite Valley, Half Dome, Yosemite Falls}, "PhotoUrl": : "www.sample.com""| Output: "200 OK" |
 | **User can delete Parks** | User Input:"DELETE api/parks/ENTERIDNUMBER" | Output: “200 OK” |
-| **User can search for a Park by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com"" |
-| **User can search for a Park by State** | User Input:"User Input:"GET /api/parks?state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com"" |
-| **User can search for a Park by multiple parameters** | User Input:"User Input:"GET /api/parks?name=Yosemite&state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com"" |
+| **User can search for a Park by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ Yosemite Valley, Half Dome, Yosemite Falls }, "PhotoUrl": : "www.sample.com"" |
+| **User can search for a Park by State** | User Input:"User Input:"GET /api/parks?state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {Yosemite Valley, Half Dome, Yosemite Falls}, "PhotoUrl": : "www.sample.com"" |
+| **User can search for a Park by multiple parameters** | User Input:"User Input:"GET /api/parks?name=Yosemite&state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {Yosemite Valley, Half Dome, Yosemite Falls}, "PhotoUrl": : "www.sample.com"" |
+| **User can view all Landmarks** | User Input:"GET api/landmarks" | Output: “List of all Landmarks” |
+| **User can view Details for each Landmark** | User Input:"GET api/parks/ENTERIDNUMBER" | Output: ""new Landmark { "landmarkId": 1, "parkId": 1, "name": "Yosemite Valley" }"|
+| **User can Add a Landmark** | User Input:"POST api/landmarks" --- "parkId": 1, "name": "Yosemite Falls"  | Output: “200 OK” |
+| **User can update a Landmark's Details** | User Input:"PUT api/parks/ENTERIDNUMBER" --- "parkId": 1, "name": "Yosemite Fallz"| Output: "200 OK" |
+| **User can delete Landmarks** | User Input:"DELETE api/parks/ENTERIDNUMBER" | Output: “200 OK” |
+| **User can search for a Landmark by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: {"landmarkId": 1, "parkId": 1, "name": "Yosemite Valley"},{"landmarkId": 2, "parkId": 1, "name": "Yosemite Falls"}|
 | **User enters home page** | User Input:"URL: localhost:5000/" | Output: “Swagger API Documentation” |
+
+
+### Stretch Goals
+* MVC
+* One to many relationship 
 
 #### Resources
 * [Yosemite Photo](https://www.nationalgeographic.com/content/dam/expeditions/destinations/north-america/private/Yosemite/Hero-Yosemite.ngsversion.1524840074980.adapt.1900.1.jpg)
