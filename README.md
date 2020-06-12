@@ -36,20 +36,6 @@ code .
 }
 ```
 * Add your MySQL password and make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
-<!-- 
-IF MVC IS ADDED:
-6. To download the MVC project Directory to your desktop enter the following commands:
-```
-cd Desktop
-git clone https://github.com/jhvozdovich/park-lookup-mvc.git *****USE CORRECT URL
-cd park-lookup-mvc (or the file name you created for the main Directory of the download)
-```
-7. To view the downloaded files, open them in a text editor or IDE of your choice.
-* if you have VSCode for example, when your terminal is within the main project Directory you can open all of the files with the command:
-```
-code .
-``` -->
-
 
 #### If you need to install and configure MySQL:
 1. Download the MySQL Community Server DMG file [here](https://dev.mysql.com/downloads/file/?id=484914) with the "No thanks, just start my download" link.
@@ -105,7 +91,6 @@ http://localhost:5000/api/parks/
 ```
 * In the Body tab, select the raw button and JSON from the dropdown.
 * Paste your new park in the body text box with information in the following format:
-<!-- UPDATE WHEN COMPLETED -->
 ```
 {
   "Name": "ENTER PARK NAME",
@@ -118,16 +103,6 @@ http://localhost:5000/api/parks/
 * Click Send, successful responses will return a 200OK result.
 * If there is a "could not get response" error be sure the program is still running at http://localhost:5000 
 * To easily access the format of Post/Put requests - run a GET request and copy the format of the JSON response returned.
-
-
-<!--  IF MVC IS FINISHED
-#### To run the MVC program:
-To install the necessary dependencies and start a localhost, after replicating the database and ensuring it is also running on a different session (Example: API on port 5000, MVC on port 5006), run the following commands:
-```
-dotnet restore
-dotnet build
-dotnet run
-``` -->
 
 ### Known Bugs
 
@@ -166,7 +141,6 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | **User can search for a Landmark by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: {"landmarkId": 1, "parkId": 1, "name": "Yosemite Valley"},{"landmarkId": 2, "parkId": 1, "name": "Yosemite Falls"}|
 | **User can search for a random Landmark** | User Input:"User Input:"GET /api/landmarks/GetRandom" | Output: "landmarkId": 2, "parkId": 1, "name": "Yosemite Falls"|
 | **User enters home page** | User Input:"URL: localhost:5000/" | Output: “Swagger API Documentation” |
-
 
 ### Stretch Goals
 * MVC
