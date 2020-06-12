@@ -152,6 +152,7 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 * [Yosemite Photo](https://www.nationalgeographic.com/content/dam/expeditions/destinations/north-america/private/Yosemite/Hero-Yosemite.ngsversion.1524840074980.adapt.1900.1.jpg)
 * [Gravity Falls Illustration](https://vignette.wikia.nocookie.net/gravityfalls/images/2/22/Opening_Bigfoot.png/revision/latest?cb=20160119145704)
 * [Zion Photo](https://www.nps.gov/npgallery/GetAsset/988A495E-155D-451F-67EE640C7B3812F6/proxy/hires?)
+* [Everglades Photo](https://www.nps.gov/common/uploads/banner_image/akr/homepage/510DA558-1DD8-B71B-0BF2DBBE49B06F9F.jpg)
 
 #### License
 

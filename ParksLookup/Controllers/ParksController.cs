@@ -38,5 +38,12 @@ namespace ParksLookup.Controllers
 
       return query.ToList();
     }
+
+    [HttpPost]
+    public void Post([FromBody] Park park)
+    {
+      _db.Parks.Add(park);
+      _db.SaveChanges();
+    }
   }
 }
