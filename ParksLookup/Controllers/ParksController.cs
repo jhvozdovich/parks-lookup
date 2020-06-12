@@ -39,11 +39,20 @@ namespace ParksLookup.Controllers
       return query.ToList();
     }
 
+    // GET api/parks/2
+    [HttpGet("{id}")]
+    public ActionResult<Park> Get(int id)
+    {
+      return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+    }
+
+    // POST api/parks
     [HttpPost]
     public void Post([FromBody] Park park)
     {
       _db.Parks.Add(park);
       _db.SaveChanges();
     }
+
   }
 }
