@@ -6,66 +6,154 @@ using ParksLookup.Models;
 
 namespace ParksLookup.Migrations
 {
-    [DbContext(typeof(ParksLookupContext))]
-    partial class ParksLookupContextModelSnapshot : ModelSnapshot
+  [DbContext(typeof(ParksLookupContext))]
+  partial class ParksLookupContextModelSnapshot : ModelSnapshot
+  {
+    protected override void BuildModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+      modelBuilder
+          .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+          .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("ParksLookup.Models.Landmark", b =>
-                {
-                    b.Property<int>("LandmarkId")
-                        .ValueGeneratedOnAdd();
+      modelBuilder.Entity("ParksLookup.Models.Landmark", b =>
+          {
+            b.Property<int>("LandmarkId")
+                      .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+            b.Property<string>("Name")
+                      .IsRequired();
 
-                    b.Property<int>("ParkId");
+            b.Property<int>("ParkId");
 
-                    b.HasKey("LandmarkId");
+            b.HasKey("LandmarkId");
 
-                    b.HasIndex("ParkId");
+            b.HasIndex("ParkId");
 
-                    b.ToTable("Landmarks");
+            b.ToTable("Landmark");
+
+            b.HasData(
+                      new
+                  {
+                    LandmarkId = 1,
+                    Name = "Yosemite Valley",
+                    ParkId = 1
+                  },
+                      new
+                  {
+                    LandmarkId = 2,
+                    Name = "Half Dome",
+                    ParkId = 1
+                  },
+                      new
+                  {
+                    LandmarkId = 3,
+                    Name = "YosemiteFalls",
+                    ParkId = 1
+                  },
+                      new
+                  {
+                    LandmarkId = 4,
+                    Name = "Mystery Shack",
+                    ParkId = 2
+                  },
+                      new
+                  {
+                    LandmarkId = 5,
+                    Name = "Gravity Falls Forest",
+                    ParkId = 2
+                  },
+                      new
+                  {
+                    LandmarkId = 6,
+                    Name = "Lake Gravity falls",
+                    ParkId = 2
+                  },
+                      new
+                  {
+                    LandmarkId = 7,
+                    Name = "The Narrows",
+                    ParkId = 3
+                  },
+                      new
+                  {
+                    LandmarkId = 8,
+                    Name = "Angels Landing",
+                    ParkId = 3
+                  },
+                      new
+                  {
+                    LandmarkId = 9,
+                    Name = "Emerald Pools Trail",
+                    ParkId = 3
+                  });
+          });
+
+      modelBuilder.Entity("ParksLookup.Models.Park", b =>
+          {
+            b.Property<int>("ParkId")
+                      .ValueGeneratedOnAdd();
+
+            b.Property<string>("Classification")
+                      .IsRequired()
+                      .HasMaxLength(10);
+
+            b.Property<string>("Hours");
+
+            b.Property<string>("Name")
+                      .IsRequired();
+
+            b.Property<string>("PhotoUrl");
+
+            b.Property<string>("State")
+                      .IsRequired()
+                      .HasMaxLength(15);
+
+            b.HasKey("ParkId");
+
+            b.ToTable("Parks");
+
+<<<<<<< HEAD
+=======
+                    b.HasData(
+                        new
+                        {
+                            ParkId = 1,
+                            Classification = "National",
+                            Hours = "24/7",
+                            Name = "Yosemite",
+                            PhotoUrl = "https://www.nationalgeographic.com/content/dam/expeditions/destinations/north-america/private/Yosemite/Hero-Yosemite.ngsversion.1524840074980.adapt.1900.1.jpg",
+                            State = "California"
+                        },
+                        new
+                        {
+                            ParkId = 2,
+                            Classification = "State",
+                            Hours = "25/8 (if you can find it)",
+                            Name = "Gravity Falls",
+                            PhotoUrl = "https://vignette.wikia.nocookie.net/gravityfalls/images/2/22/Opening_Bigfoot.png/revision/latest?cb=20160119145704",
+                            State = "Oregon"
+                        },
+                        new
+                        {
+                            ParkId = 3,
+                            Classification = "National",
+                            Hours = "24/7",
+                            Name = "Zion",
+                            PhotoUrl = "https://www.nps.gov/npgallery/GetAsset/988A495E-155D-451F-67EE640C7B3812F6/proxy/hires?",
+                            State = "Utah"
+                        });
+>>>>>>> parent of 4335480... add CRUD to Landmarks controller
                 });
 
-            modelBuilder.Entity("ParksLookup.Models.Park", b =>
-                {
-                    b.Property<int>("ParkId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Classification")
-                        .IsRequired()
-                        .HasMaxLength(10);
-
-                    b.Property<string>("Hours");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<string>("PhotoUrl");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasMaxLength(15);
-
-                    b.HasKey("ParkId");
-
-                    b.ToTable("Parks");
-                });
-
-            modelBuilder.Entity("ParksLookup.Models.Landmark", b =>
-                {
-                    b.HasOne("ParksLookup.Models.Park", "Park")
-                        .WithMany("Landmarks")
-                        .HasForeignKey("ParkId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+      modelBuilder.Entity("ParksLookup.Models.Landmark", b =>
+          {
+            b.HasOne("ParksLookup.Models.Park", "Park")
+                      .WithMany("Landmarks")
+                      .HasForeignKey("ParkId")
+                      .OnDelete(DeleteBehavior.Cascade);
+          });
 #pragma warning restore 612, 618
-        }
     }
+  }
 }
