@@ -15,7 +15,7 @@ namespace ParksLookup.Models
     {
       builder.Entity<Park>()
           .HasData(
-          new Park { ParkID = 1, Name = "Yosemite", Classification = "National", State = "California", Hours = "27/7", Landmarks = { "Yosemite Valley", "Half Dome", "Yosemite Falls" }, PhotoUrl = "www.sample.com" }
+          new Park { ParkId = 1, Name = "Yosemite", Classification = "National", State = "California", Hours = "27/7", Landmarks = { "Yosemite Valley", "Half Dome", "Yosemite Falls" }, PhotoUrl = "www.sample.com" }
           );
     }
   }
