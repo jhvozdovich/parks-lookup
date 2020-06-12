@@ -42,6 +42,12 @@ namespace ParksLookup.Controllers
     [HttpPost]
     public void Post([FromBody] Landmark landmark)
     {
+      if (landmark.ParkId != 0)
+      {
+        Park park = _db.Parks.FirstOrDefault(entry => entry.ParkId == landmark.ParkId);
+        park.Landmarks.Add(landmark);
+        landmark.Park = park;
+      }
       _db.Landmarks.Add(landmark);
       _db.SaveChanges();
     }
@@ -63,6 +69,5 @@ namespace ParksLookup.Controllers
       _db.Landmarks.Remove(landmarkToDelete);
       _db.SaveChanges();
     }
-
   }
 }

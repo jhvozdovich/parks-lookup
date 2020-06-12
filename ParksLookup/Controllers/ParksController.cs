@@ -71,6 +71,5 @@ namespace ParksLookup.Controllers
       _db.Parks.Remove(parkToDelete);
       _db.SaveChanges();
     }
-
   }
 }

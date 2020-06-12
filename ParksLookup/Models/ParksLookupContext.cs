@@ -33,9 +33,6 @@ namespace ParksLookup.Models
           new Landmark { LandmarkId = 8, ParkId = 3, Name = "Angels Landing" },
           new Landmark { LandmarkId = 9, ParkId = 3, Name = "Emerald Pools Trail" }
           );
-
-
-
     }
   }
 }
