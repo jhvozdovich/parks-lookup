@@ -70,6 +70,21 @@ namespace ParksLookup.Controllers
     {
       landmark.LandmarkId = id;
       _db.Entry(landmark).State = EntityState.Modified;
+      if (landmark.ParkId != 0)
+      {
+        Console.WriteLine("__________________________________________________________________");
+        Console.WriteLine("I GOT IN THE IF STATEMENT");
+        Park park = _db.Parks.FirstOrDefault(entry => entry.ParkId == landmark.ParkId);
+        Console.WriteLine("__________________________________________________________________");
+        Console.WriteLine("HERE IS THE PARK");
+        Console.WriteLine(park.Name);
+        park.Landmarks.Add(landmark);
+        landmark.Park = park;
+        Console.WriteLine("__________________________________________________________________");
+        Console.WriteLine("ADDED PARK???");
+        Console.WriteLine(landmark.Park.Name);
+        _db.SaveChanges();
+      }
       _db.SaveChanges();
     }
 
