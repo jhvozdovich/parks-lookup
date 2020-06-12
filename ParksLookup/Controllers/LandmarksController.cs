@@ -64,28 +64,60 @@ namespace ParksLookup.Controllers
       _db.SaveChanges();
     }
 
+    // // PUT api/landmarks/2
+    // [HttpPut("{id}")]
+    // public void Put(int id, [FromBody] Landmark landmark)
+    // {
+    //   landmark.LandmarkId = id;
+    //   if (landmark.ParkId != 0)
+    //   {
+    //     Console.WriteLine("__________________________________________________________________");
+    //     Console.WriteLine("I GOT IN THE IF STATEMENT");
+    //     Park park = _db.Parks.FirstOrDefault(entry => entry.ParkId == landmark.ParkId);
+    //     Console.WriteLine("__________________________________________________________________");
+    //     Console.WriteLine("HERE IS THE PARK");
+    //     Console.WriteLine(park.Name);
+    //     park.Landmarks.Add(landmark);
+    //     landmark.Park = park;
+    //     Console.WriteLine("__________________________________________________________________");
+    //     Console.WriteLine("ADDED PARK???");
+    //     Console.WriteLine(landmark.Park.Name);
+    //     _db.Entry(park).State = EntityState.Modified;
+    //   }
+    //   _db.Entry(landmark).State = EntityState.Modified;
+    //   _db.SaveChanges();
+    // }
+
     // PUT api/landmarks/2
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] Landmark landmark)
     {
-      landmark.LandmarkId = id;
-      _db.Entry(landmark).State = EntityState.Modified;
-      if (landmark.ParkId != 0)
+      var originalPark = _db.Parks
+        .Where(park => park.ParkId == landmark.ParkId)
+        .Include(landmarks => landmarks.Landmarks)
+        .SingleOrDefault();
+
+      var parkEntry = _db.Entry(originalPark);
+      parkEntry.CurrentValues.SetValues(landmark.Park);
+
+
+      foreach (Landmark oldLandmark in landmark.Park.Landmarks)
       {
-        Console.WriteLine("__________________________________________________________________");
-        Console.WriteLine("I GOT IN THE IF STATEMENT");
-        Park park = _db.Parks.FirstOrDefault(entry => entry.ParkId == landmark.ParkId);
-        Console.WriteLine("__________________________________________________________________");
-        Console.WriteLine("HERE IS THE PARK");
-        Console.WriteLine(park.Name);
-        park.Landmarks.Add(landmark);
-        landmark.Park = park;
-        Console.WriteLine("__________________________________________________________________");
-        Console.WriteLine("ADDED PARK???");
-        Console.WriteLine(landmark.Park.Name);
-        _db.SaveChanges();
+        var originalLandmark = originalPark.Landmarks
+          .Where(x => x.LandmarkId == oldLandmark.LandmarkId && x.LandmarkId != 0)
+          .SingleOrDefault();
+
+        if (originalLandmark != null)
+        {
+          var landmarkEntry = _db.Entry(originalLandmark);
+          landmarkEntry.CurrentValues.SetValues(oldLandmark);
+        }
+        else
+        {
+          oldLandmark.LandmarkId = 0;
+          originalPark.Landmarks.Add(landmark);
+        }
       }
-      _db.SaveChanges();
     }
 
     // DELETE api/landmarks/2
