@@ -10,6 +10,7 @@ namespace ParksLookup.Models
     }
 
     public DbSet<Park> Parks { get; set; }
+    public DbSet<Landmark> Landmarks { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

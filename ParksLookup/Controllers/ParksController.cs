@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using ParksLookup.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ParksLookup.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ParksLookup.Controllers
 {
