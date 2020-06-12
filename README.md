@@ -139,14 +139,19 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | Spec | Input | Output |
 | :------------- | :------------- | :------------- |
 | **User can view all Parks** | User Input:"GET api/parks" | Output: “List of all Parks ” |
-| **User can view Details for each Park** | User Input:"GET api/parks/ENTERIDNUMBER" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "27/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com""|
-| **User can Add a Park** | User Input:"POST api/parks" --- "Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "27/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com""| | Output: “200 OK” |
-| **User can update a Park's Details** | User Input:"PUT api/parks/ENTERIDNUMBER" --- "Name": "Yosemite",   v "State": "California", "Hours": "27/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com""| Output: "200 OK" |
+| **User can view Details for each Park** | User Input:"GET api/parks/ENTERIDNUMBER" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com""|
+| **User can Add a Park** | User Input:"POST api/parks" --- "Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com""| | Output: “200 OK” |
+| **User can update a Park's Details** | User Input:"PUT api/parks/ENTERIDNUMBER" --- "Name": "Yosemite",   v "State": "California", "Hours": "24/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com""| Output: "200 OK" |
 | **User can delete Parks** | User Input:"DELETE api/parks/ENTERIDNUMBER" | Output: “200 OK” |
-| **User can search for a Park by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "27/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com"" |
-| **User can search for a Park by State** | User Input:"User Input:"GET /api/parks?state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "27/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com"" |
-| **User can search for a Park by multiple parameters** | User Input:"User Input:"GET /api/parks?name=Yosemite&state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "27/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com"" |
+| **User can search for a Park by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ "Yosemite Valle"y," Half Dom"e," Yosemite Falls}", "PhotoUrl": : "www.sample.com"" |
+| **User can search for a Park by State** | User Input:"User Input:"GET /api/parks?state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com"" |
+| **User can search for a Park by multiple parameters** | User Input:"User Input:"GET /api/parks?name=Yosemite&state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {"Yosemite Valley", "Half Dome", "Yosemite Falls"}, "PhotoUrl": : "www.sample.com"" |
 | **User enters home page** | User Input:"URL: localhost:5000/" | Output: “Swagger API Documentation” |
+
+#### Resources
+* [Yosemite Photo](https://www.nationalgeographic.com/content/dam/expeditions/destinations/north-america/private/Yosemite/Hero-Yosemite.ngsversion.1524840074980.adapt.1900.1.jpg)
+* [Gravity Falls Illustration](https://vignette.wikia.nocookie.net/gravityfalls/images/2/22/Opening_Bigfoot.png/revision/latest?cb=20160119145704)
+* [Zion Photo](https://www.nps.gov/npgallery/GetAsset/988A495E-155D-451F-67EE640C7B3812F6/proxy/hires?)
 
 #### License
 

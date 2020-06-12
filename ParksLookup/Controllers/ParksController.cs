@@ -19,13 +19,21 @@ namespace ParksLookup.Controllers
 
     // GET api/parks
     [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get(string name)
+    public ActionResult<IEnumerable<Park>> Get(string name, string classification, string state)
     {
       var query = _db.Parks.AsQueryable();
 
       if (name != null)
       {
-        query = query.Where(entry => entry.Name == name);
+        query = query.Where(entry => entry.Name.Contains(name));
+      }
+      else if (classification != null)
+      {
+        query = query.Where(entry => entry.Classification.Contains(classification));
+      }
+      else if (state != null)
+      {
+        query = query.Where(entry => entry.State.Contains(state));
       }
 
       return query.ToList();
