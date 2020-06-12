@@ -157,12 +157,14 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | **User can search for a Park by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: ""Name": "Yosemite",  "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks":{ Yosemite Valley, Half Dome, Yosemite Falls }, "PhotoUrl": : "www.sample.com"" |
 | **User can search for a Park by State** | User Input:"User Input:"GET /api/parks?state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {Yosemite Valley, Half Dome, Yosemite Falls}, "PhotoUrl": : "www.sample.com"" |
 | **User can search for a Park by multiple parameters** | User Input:"User Input:"GET /api/parks?name=Yosemite&state=California" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {Yosemite Valley, Half Dome, Yosemite Falls}, "PhotoUrl": : "www.sample.com"" |
+| **User can search for a random Park** | User Input:"User Input:"GET /api/parks/GetRandom" | Output: ""Name": "Yosemite", "Classification": "National", "State": "California", "Hours": "24/7", "Landmarks": {Yosemite Valley, Half Dome, Yosemite Falls}, "PhotoUrl": : "www.sample.com"" |
 | **User can view all Landmarks** | User Input:"GET api/landmarks" | Output: “List of all Landmarks” |
 | **User can view Details for each Landmark** | User Input:"GET api/parks/ENTERIDNUMBER" | Output: ""new Landmark { "landmarkId": 1, "parkId": 1, "name": "Yosemite Valley" }"|
 | **User can Add a Landmark** | User Input:"POST api/landmarks" --- "parkId": 1, "name": "Yosemite Falls"  | Output: “200 OK” |
 | **User can update a Landmark's Details** | User Input:"PUT api/parks/ENTERIDNUMBER" --- "parkId": 1, "name": "Yosemite Fallz"| Output: "200 OK" |
 | **User can delete Landmarks** | User Input:"DELETE api/parks/ENTERIDNUMBER" | Output: “200 OK” |
 | **User can search for a Landmark by Name** | User Input:"GET /api/parks?name=Yosemite" | Output: {"landmarkId": 1, "parkId": 1, "name": "Yosemite Valley"},{"landmarkId": 2, "parkId": 1, "name": "Yosemite Falls"}|
+| **User can search for a random Landmark** | User Input:"User Input:"GET /api/landmarks/GetRandom" | Output: "landmarkId": 2, "parkId": 1, "name": "Yosemite Falls"|
 | **User enters home page** | User Input:"URL: localhost:5000/" | Output: “Swagger API Documentation” |
 
 

@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ParksLookup.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace ParksLookup.Controllers
 {
@@ -37,6 +38,17 @@ namespace ParksLookup.Controllers
       }
 
       return query.ToList();
+    }
+
+    // GET api/parks/GetRandom
+    [HttpGet]
+    [Route("GetRandom")]
+    public ActionResult<Park> GetRandom()
+    {
+      List<Park> parks = _db.Parks.ToList();
+      var random = new Random();
+      int num = random.Next(parks.Count - 1);
+      return parks[num];
     }
 
     // GET api/parks/2
