@@ -15,8 +15,17 @@ namespace ParksLookup.Models
     {
       builder.Entity<Park>()
           .HasData(
-          new Park { ParkId = 1, Name = "Yosemite", Classification = "National", State = "California", Hours = "27/7", Landmarks = { "Yosemite Valley", "Half Dome", "Yosemite Falls" }, PhotoUrl = "www.sample.com" }
+          new Park { ParkId = 1, Name = "Yosemite", Classification = "National", State = "California", Hours = "27/7", PhotoUrl = "www.sample.com" }
           );
+      builder.Entity<Landmark>()
+          .HasData(
+          new Landmark { LandmarkId = 1, ParkId = 1, Name = "Yosemite Valley" },
+          new Landmark { LandmarkId = 2, ParkId = 1, Name = "Half Dome" },
+          new Landmark { LandmarkId = 3, ParkId = 1, Name = "YosemiteFalls" }
+          );
+
+
+
     }
   }
 }
