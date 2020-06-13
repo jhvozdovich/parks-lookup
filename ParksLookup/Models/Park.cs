@@ -19,7 +19,7 @@ namespace ParksLookup.Models
     public string Classification { get; set; }
 
     [Required]
-    [StringLength(15)]
+    [StringLength(30)]
     public string State { get; set; }
 
     public string Hours { get; set; }
